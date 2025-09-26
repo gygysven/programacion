@@ -13,14 +13,14 @@ def inicio_sesion():
             print(f"Bienvenido, {user}")
             break
         else:
-            input("Contraseña incorrecta. Por favor intente de nuevo.")
+            print("Contraseña incorrecta. Por favor intente de nuevo.")
 
 def cargar_datos(nombre_archivo):
     with open(nombre_archivo, "r", encoding="utf-8") as archivo:
         return json.load(archivo)
 
 def mostrar_catalogo(items, tipo):
-    print(f"======CATÁLOGO DE {'libros' if tipo=="libro" else "peliculas"}======")
+    print(f"======CATÁLOGO DE {'libros' if tipo=='libro' else 'peliculas'}======")
     for item in items:
         if tipo == "libro":
             print(f"{item['titulo']} (Autor: {item['autor']}, Año: {item['año']}) - Géneros: {', '.join(item['genero'])}")
@@ -32,7 +32,7 @@ def obtener_preferencias(tipo):
     generos = input("¿Qué generos le interesan? (separados en comas): ").lower()
     generos = [g.strip().lower() for g in generos.split(",") if g.strip()]
 
-    persona = input(f"¿Hay algún {'autor' if tipo=="libro" else "director"} que te guste? (opcional): ").strip()
+    persona = input(f"¿Hay algún {'autor' if tipo=='libro' else 'director'} que te guste? (opcional): ").strip()
     persona = persona if persona else None
 
     año_min = input("¿Desde qué año te interesa? (opcional): ").strip()
@@ -71,7 +71,7 @@ def recomendar(items, tipo, generos_pref, persona_pref, año_min, año_max):
 def mostrar_recomendaciones(recomendaciones, tipo):
     print("\n------ RECOMENDACIONES ------")
     if not recomendaciones:
-        print("No se encontraron libros que coincidan con tus preferencias.")
+        print(f"No se encontraron {tipo}s que coincidan con tus preferencias.")
     else:
         for item, puntaje in recomendaciones:
             if tipo=="libro":
@@ -80,12 +80,12 @@ def mostrar_recomendaciones(recomendaciones, tipo):
                 print(f"{item['titulo']} (Director: {item['director']}, Año: {item['año']}) - Puntos: {puntaje}")
 
 def recomendaciones(tipo):
-    archivo = "libros.json" if tipo=="libro" else "peliculas,json"
+    archivo = "libros.json" if tipo=="libro" else "peliculas.json"
     items = cargar_datos(archivo)
     mostrar_catalogo(items,tipo)
     generos, persona, año_min, año_max = obtener_preferencias(tipo)
-    recomendaciones = recomendar(items, generos, persona, año_min, año_max)
-    mostrar_recomendaciones(recomendaciones, tipo)
+    recomendaciones_lista = recomendar(items, tipo, generos, persona, año_min, año_max)
+    mostrar_recomendaciones(recomendaciones_lista, tipo)
 
 def tipo():
     while True:
