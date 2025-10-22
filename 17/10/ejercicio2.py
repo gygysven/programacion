@@ -7,7 +7,8 @@ ventana.geometry("420x520")
 ventana.resizable(False, False)
 
 frame_principal = tk.Frame(ventana, bg="#84ADD8")
-frame_principal.pack(padx=10, pady=10, fill="both", expand=True)
+frame_principal.pack(padx=10, pady=10, fill="both", expand=True) 
+# "Pack" para mostrar
 
 frame_opciones = tk.LabelFrame(
     frame_principal, 
