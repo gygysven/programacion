@@ -1,0 +1,15 @@
+{
+    "productos": [
+        {
+            "nombre": "Torta de Tres leches",
+            "codigo": 101,
+            "stock": 50,
+            "precio": 19.99
+        },
+        {
+            "nombre": "Producto B",
+            "stock": 30,
+            "precio": 29.99
+        }
+    ]
+}
