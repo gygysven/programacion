@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import json
+import uuid
 
 # Sistema de logistica - sistema de inventario
 # Caracteristica:
@@ -69,10 +70,10 @@ frame.pack(expand=True, fill="both")
 
 # REGISTRO DE PRODUCTOS
 productos = {
-    "Bluca": Producto("Laptop", 10, 2500.00),
-    "Smartphone": Producto("Smartphone", 20, 1500.00),
-    "Tablet": Producto("Tablet", 15, 1200.00),
-    "Smartwatch": Producto("Smartwatch", 25, 800.00)
+    "Bluca": Producto("Laptop", 10, "precio", 2500.00),
+    "Smartphone": Producto("Smartphone", 20,"precio", 1500.00),
+    "Tablet": Producto("Tablet", 15,"precio", 1200.00),
+    "Smartwatch": Producto("Smartwatch", 25,"precio", 800.00)
 }
 
 # -------------------------------
@@ -100,3 +101,5 @@ def agregar_al_carrito():
     
     entry = tk.Entry(frame, validate="key", validatecommand=(validate_command, "%S"))
     entry.pack(pady=10)
+
+ventana.mainloop()

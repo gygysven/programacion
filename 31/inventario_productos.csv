@@ -1,0 +1,6 @@
+﻿id,nombre,categoria,cantidad,precio
+P001,Guantes de látex,Consumibles dentales,200,0.5
+P002,Mascarilla quirúrgica,Consumibles dentales,500,0.3
+P003,Resina compuesta,Materiales dentales,50,35.0
+P004,Espejo dental,Instrumental odontológico,100,10.0
+P005,Autoclave portátil,Equipos odontológicos,5,1500.0
